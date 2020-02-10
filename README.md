@@ -8,13 +8,17 @@ Is a recipe app where users can search for recipes depending on what they have i
 - User-authentication with JWT <br>
 - Search Bar with functionality to search for recipes based on title/ingredients<br>
 - Create, read, update, delete their own recipes. <br>
-- Have a page with the highest rated recipes.  <br>
+- Have a gallery page where we have searched items <br>
+- Be able to click on a single recipe, displaying the items in the database for that specific recipe including the ingredients
 
 ## MVP Libraries
 
 React<br>
 React Router<br>
 Rails<br>
+RESTful API<br>
+FontAwesome<br>
+Semantic UI<br>
 
 ## MVP Client
 
@@ -51,4 +55,12 @@ Rails<br>
 |  Update Recipe  | functional |   y   |   n   | _User will update a recipe._       |
 |  Highest Rated  | functional |   n   |   n   | _User will update a recipe._       |
 |    Footer    | functional |   n   |   n   | _The footer will show info about me and a link to my portfolio._ |
+
+## Front-end Stretch Goals
+
+- Have a page with the highest rated recipes.  <br>
+
+## ERD Diagram
+
+![url](./ERD.png)
 
