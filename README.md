@@ -56,11 +56,24 @@ Semantic UI<br>
 |  Highest Rated  | functional |   n   |   n   | _User will update a recipe._       |
 |    Footer    | functional |   n   |   n   | _The footer will show info about me and a link to my portfolio._ |
 
-## Front-end Stretch Goals
+## Component Estimates
 
-- Have a page with the highest rated recipes.  <br>
+| Task                | Priority | Estimated Time | Time Invested | Actual Time |
+| ------------------- | :------: | :------------: | :-----------: | :---------: |
+| Backend    |    H     |     15 hrs      |     2 hrs     |    TBD    |
+| Add Login Form    |    H     |     4 hrs      |     TBD     |    TBD    |
+| Create CRUD Actions |    H     |     10 hrs      |     1 hrs     |     TBD     |
+| Add Navigation    |    H     |     4 hrs      |      TBD     |    TBD    |
+| Gallery Page |    H     |     5 hrs      |     TBD     |     TBD     |
+|  Single Post |    H     |     4 hrs      |     TBD     |     TBD     |
+| TOTAL               |          |     42 hrs      |     3 hrs     |     TBD     |
+
 
 ## ERD Diagram
 
 ![url](./ERD.png)
 
+## Front-end Stretch Goals
+
+- Have a page with the highest rated recipes.  <br>
+- Should I do step-by-step instructions
