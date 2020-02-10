@@ -18,6 +18,24 @@ Rails<br>
 
 ## MVP Client
 
+### Wireframes
+- Landing
+![Landing](./Login.png)
+
+- All Recipes
+![url](./Gallery.png)
+
+- Create Recipe
+![url](./CreateRecipe.png)
+
+- One Recipe
+![url](./OneRecipe.png)
+
+- Favorites Page
+
+![url](./Favorites.png)
+
+
 
 
 ## Component Breakdown
@@ -28,8 +46,9 @@ Rails<br>
 |  Login  | functional |   n   |   n   | _The searchbar will let the user find recipes._       |
 |  Navigation  | functional |   n   |   n   | _The searchbar will let the user find recipes._       |
 |   Recipe Gallery    |   class    |   y   |   n   | _The gallery will be the search results._      |
-| Single Recipe | functional |   n   |   y   | _The user will open a single recipe to display values of that key._                 |
-|  Create Recipe  | functional |   n   |   n   | _User will create a recipe._       |
-|  Update Recipe  | functional |   n   |   n   | _User will update a recipe._       |
+| Single Recipe | functional |   y   |   n   | _The user will open a single recipe to display values of that key._                 |
+|  Create Recipe  | functional |   y  |   n   | _User will create a recipe._       |
+|  Update Recipe  | functional |   y   |   n   | _User will update a recipe._       |
+|  Highest Rated  | functional |   n   |   n   | _User will update a recipe._       |
 |    Footer    | functional |   n   |   n   | _The footer will show info about me and a link to my portfolio._ |
 
