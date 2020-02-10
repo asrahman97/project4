@@ -46,14 +46,14 @@ Semantic UI<br>
 |  Component   |    Type    | state | props | Description                                                      |
 | :----------: | :--------: | :---: | :---: | :--------------------------------------------------------------- |
 |    Header    | functional |   n   |   n   | _The header will contain the navigation and logo._               |
-|  Register  | functional |   n   |   n   | _The searchbar will let the user find recipes._       |
-|  Login  | functional |   n   |   n   | _The searchbar will let the user find recipes._       |
+|  Register  | functional |   n   |   n   | _Create a user._       |
+|  Login  | functional |   n   |   n   | _User can log in._       |
 |  Navigation  | functional |   n   |   n   | _The searchbar will let the user find recipes._       |
 |   Recipe Gallery    |   class    |   y   |   n   | _The gallery will be the search results._      |
 | Single Recipe | functional |   y   |   n   | _The user will open a single recipe to display values of that key._                 |
 |  Create Recipe  | functional |   y  |   n   | _User will create a recipe._       |
 |  Update Recipe  | functional |   y   |   n   | _User will update a recipe._       |
-|  Highest Rated  | functional |   n   |   n   | _User will update a recipe._       |
+|  Highest Rated  | functional |   n   |   n   | _User can vote and go to a highest rated page._       |
 |    Footer    | functional |   n   |   n   | _The footer will show info about me and a link to my portfolio._ |
 
 ## Component Estimates
@@ -66,7 +66,7 @@ Semantic UI<br>
 | Add Navigation    |    H     |     4 hrs      |      TBD     |    TBD    |
 | Gallery Page |    H     |     5 hrs      |     TBD     |     TBD     |
 |  Single Post |    H     |     4 hrs      |     TBD     |     TBD     |
-| TOTAL               |          |     42 hrs      |     3 hrs     |     TBD     |
+| TOTAL               |          |     42 hrs      |     2 hrs     |     TBD     |
 
 
 ## ERD Diagram
