@@ -1,8 +1,5 @@
-# Project 4
-A Full Stack recipe discovery app
-
-## Recipe Serendipity
-Is a recipe app where users can search for recipes depending on what they have in their pantry. 
+# Recipe Serendipity
+A Full Stack recipe discovery app where users can search for recipes depending on what they have in their pantry. They can also add their own!
 
 ## MVP Goals
 - User-authentication with JWT <br>
