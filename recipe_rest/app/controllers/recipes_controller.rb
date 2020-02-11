@@ -2,14 +2,20 @@ class RecipesController < ApplicationController
   before_action :set_recipe, only: [:show, :update, :destroy]
 
   # GET /recipes
+  # def index
+  #   # get current user recipes
+  #   @recipes = current_user.recipes
+  #   json_response(@recipes)
+  # end
   def index
     @recipes = Recipe.all
-    json_response(@recipes)
+    render json: @recipes
   end
 
   # POST /recipes
   def create
-    @recipe = Recipe.create!(recipe_params)
+    # create recipes belonging to current user
+    @recipe = current_user.recipes.create!(recipe_params)
     json_response(@recipe, :created)
   end
 
@@ -33,9 +39,9 @@ class RecipesController < ApplicationController
 
   private
 
+  # remove `created_by` from list of permitted parameters
   def recipe_params
-    # whitelist params
-    params.permit(:recipe_name, :rating, :difficulty_level, :prep_time, :cook_time, :total_time, :image_url, :video_url)
+    params.require(:recipe).permit(:recipe_name, :rating, :difficulty_level, :prep_time, :cook_time, :total_time, :image_url, :video_url)
   end
 
   def set_recipe
