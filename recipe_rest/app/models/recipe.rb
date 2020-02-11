@@ -1,8 +1,11 @@
 class Recipe < ApplicationRecord
 
-  belongs_to :user
+  # belongs_to :user
   # Model associations
   has_many :ingredients
+  has_many :ratings
+
+  validates_presence_of :created_by
   # Validations
   # validates :recipe_name, presence: true
   # validates :rating

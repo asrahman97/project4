@@ -15,6 +15,7 @@ class RecipesController < ApplicationController
   # POST /recipes
   def create
     # create recipes belonging to current user
+    puts current_user.user
     @recipe = current_user.recipes.create!(recipe_params)
     json_response(@recipe, :created)
   end

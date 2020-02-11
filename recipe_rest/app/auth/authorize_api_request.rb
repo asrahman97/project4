@@ -1,6 +1,7 @@
 class AuthorizeApiRequest
   def initialize(headers = {})
     @headers = headers
+    puts @headers
   end
 
   # Service entry point - return valid user object

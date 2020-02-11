@@ -16,26 +16,26 @@ class IngredientsController < ApplicationController
   def create
     @recipe.ingredients.create!(ingredient_params)
     # json_response(@recipe, :created)
-    json_response(status: "SUCCESS", message: 'ingredient created successfully.', data: @ingredient.name)
+    json_response(status: "SUCCESS", message: 'ingredient created successfully.')
 
   end
 
   # PUT /recipes/:recipe_id/ingredients/:id
   def update
     @ingredient.update(ingredient_params)
-    json_response(status: 'SUCCESS', message: 'ingredient updated successfully.', data: @ingredient.name)
+    json_response(status: 'SUCCESS', message: 'ingredient updated successfully.')
   end
 
   # DELETE /recipes/:recipe_id/ingredients/:id
   def destroy
     @ingredient.destroy
-    json_response(status: 'SUCCESS', message: 'ingredient deleted successfully.', data: @ingredient.name)
+    json_response(status: 'SUCCESS', message: 'ingredient deleted successfully.')
   end
 
   private
 
   def ingredient_params
-    params.permit(:name, :done)
+    params.permit(:ingredient_name)
   end
 
   def set_recipe

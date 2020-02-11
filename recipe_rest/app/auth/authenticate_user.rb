@@ -1,6 +1,10 @@
 class AuthenticateUser
   def initialize(user, password)
+    puts user
+    puts password
+
     @user = user
+    puts user
     @password = password
   end
 
@@ -16,6 +20,7 @@ class AuthenticateUser
   # verify user credentials
   def user
     user = User.find_by(user: @user)
+    puts user
     return user if user && user.authenticate(password)
     # raise Authentication error if credentials are invalid
     raise(ExceptionHandler::AuthenticationError, Messages.invalid_credentials)
