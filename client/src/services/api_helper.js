@@ -13,7 +13,7 @@ export const loginUser = async loginData => {
   return resp.data.user;
 };
 
-// REGISTER - 2
+// REGISTER
 export const registerUser = async registerData => {
   try {
     const resp = await api.post("/signup/", registerData);
@@ -82,25 +82,25 @@ export const ingredientsrecipe = async id => {
   return resp.data;
 };
 
-// CREATE INGREDIENT FOR RECIPE - 11
+// CREATE INGREDIENT FOR RECIPE
 export const ingredientCreate = async (id, ingredientData) => {
   const resp = await api.post(`/recipes/${id}/ingredients`, ingredientData);
   return resp.data;
 };
 
-// INDIVIDUAL INGREDIENT - 12
+// INDIVIDUAL INGREDIENT
 export const ingredientSingle = async (r_id, i_id) => {
   const resp = await api.get(`/recipes/${r_id}/ingredients/${i_id}`);
   return resp.data;
 };
 
-// UPDATE INGREDIENT - 13
+// UPDATE INGREDIENT
 export const ingredientUpdate = async (r_id, i_id, ingredientData) => {
   const resp = await api.put(`/recipes/${r_id}/ingredients/${i_id}`, ingredientData);
   return resp.data;
 };
 
-// DELETE INGREDIENT - 14
+// DELETE INGREDIENT
 export const ingredientDelete = async (r_id, i_id) => {
   const resp = await api.destroy(`/recipes/${r_id}/ingredients/${i_id}`);
   return resp.data;
