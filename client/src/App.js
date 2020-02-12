@@ -4,6 +4,7 @@ import { Route, Link, withRouter } from "react-router-dom";
 import "./App.css";
 import Login from "./components/login";
 import Register from './components/register'
+import Navigation from './components/navigation'
 
 class App extends Component {
   constructor(props) {
@@ -84,7 +85,7 @@ class App extends Component {
             errorText={this.state.errorText}
           />
         )}/>
-
+        <Navigation />
         Hello world, please help
     
       </div>
