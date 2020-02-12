@@ -10,26 +10,29 @@ export const loginUser = async loginData => {
   const resp = await api.post(`/auth/login`, loginData);
   api.defaults.headers.common.authorization = `Bearer ${resp.data.auth_token}`;
   LocalStorage(resp);
-  return resp.data.user;
+  return resp.data;
+  console.log(resp.data.user);
+  
 };
 
 // REGISTER
-export const registerUser = async registerData => {
+export const registerUser = async (registerData) => {
   try {
-    const resp = await api.post("/signup/", registerData);
+    // console.log("hello")
+  const resp = await api.post('/signup', registerData);
+  console.log(resp);
+  
     api.defaults.headers.common.authorization = `Bearer ${resp.data.auth_token}`;
-    LocalStorage(resp);
-    return resp.data.user;
-  } catch (e) {
+    localStorage.setItem('authToken', resp.data.auth_token);
+    localStorage.setItem('user', resp.data.user);
+    return resp.data;
+  } catch(e) {
     console.log(e.response);
     if (e.response.status === 422) {
-      return {
-        errorMessage:
-          "This username is already associated with another chef, please login to continue"
-      };
+      return {errorMessage: "Username is already associated with a chef, please login to continue"}
     }
   }
-};
+}
 
 const LocalStorage = resp => {
   localStorage.setItem("authToken", resp.data.auth_token);
