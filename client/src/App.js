@@ -4,7 +4,8 @@ import {
   loginUser,
   verifyUser,
   recipeSingle,
-  recipesAll
+  recipesAll,
+  recipesCreate
 } from "./services/api_helper";
 import { Route, Link, withRouter } from "react-router-dom";
 import "./App.css";
@@ -12,8 +13,8 @@ import Login from "./components/login";
 import Register from "./components/register";
 import Navigation from "./components/navigation";
 import RecipeGallery from "./components/recipeGallery";
-import Recipe from './components/singleRecipe'
-import Footer from './components/footer'
+import Recipe from "./components/singleRecipe";
+import Footer from "./components/footer";
 
 class App extends Component {
   constructor(props) {
@@ -73,15 +74,26 @@ class App extends Component {
     });
   };
 
+  createRecipe = async recipe => {
+    const newRecipe = await recipesCreate(recipe);
+    const recipes = this.state.recipes.slice(0);
+    recipes.push(newRecipe);
+    this.setState({
+      recipes
+    });
+  };
+
   componentDidMount() {
     verifyUser();
-    this.getRecipes()
+    this.getRecipes();
+    console.log(localStorage.getItem('user'));
+    
     if (localStorage.getItem("authToken")) {
       const user = localStorage.getItem("user");
       const user1 = { user };
       user &&
         this.setState({
-          currentUser: user1
+          currentUser: user
         });
     }
   }
@@ -92,7 +104,7 @@ class App extends Component {
       <div className="App">
         {this.state.currentUser ? (
           <div>
-            <h1>Hello, {this.state.currentUser.user}</h1>
+            <h1>Hello, {this.state.currentUser}</h1>
             <button onClick={this.handleLogout}>Logout!!</button>
           </div>
         ) : (
@@ -119,34 +131,39 @@ class App extends Component {
           )}
         />
         <Navigation />
-        <Route exact path="/" render={(props) =>
-        <RecipeGallery
-            // {...props}
-            currentUser={this.state.currentUser}
-            recipes={this.state.recipes}
-          // createRecipe={this.createRecipe}
-          />
-          }/>
-        
-        <Route  path="/recipes/:id" render={(props) =>
-          
-          <Recipe {...props}
-            getRecipe={this.getRecipe}
-            getRecipes={this.getRecipes}
-            currentUser={this.state.currentUser}
-            recipe={this.state.recipe}
-            recipes={this.state.recipes}
-            updateRecipe={this.updateRecipe}
-            deleteRecipe={this.deleteRecipe}
-            createComment={this.createComment}
-            getComments={this.getComments}
-            deleteComment={this.deleteComment}
-            comments={this.state.comments}
-            
-            />}
-          />
-          Hello world, please help
-          <Footer />
+        <Route
+          exact
+          path="/"
+          render={props => (
+            <RecipeGallery
+              // {...props}
+              currentUser={this.state.currentUser}
+              recipes={this.state.recipes}
+              createRecipe={this.createRecipe}
+            />
+          )}
+        />
+        <Route
+          path="/recipes/:id"
+          render={props => (
+            <Recipe
+              {...props}
+              getRecipe={this.getRecipe}
+              getRecipes={this.getRecipes}
+              currentUser={this.state.currentUser}
+              recipe={this.state.recipe}
+              recipes={this.state.recipes}
+              updateRecipe={this.updateRecipe}
+              deleteRecipe={this.deleteRecipe}
+              createComment={this.createComment}
+              getComments={this.getComments}
+              deleteComment={this.deleteComment}
+              comments={this.state.comments}
+            />
+          )}
+        />
+        Hello world, please help
+        <Footer />
       </div>
     );
   }
