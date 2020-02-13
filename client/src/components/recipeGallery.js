@@ -1,6 +1,7 @@
 import React, {Component} from 'react'
 import { Link } from 'react-router-dom'
 import CreatePost from './createRecipe'
+import Masonry from 'react-masonry-component'
 // import CreateRecipe from './createRecipe'
 
 class RecipeGallery extends Component {
