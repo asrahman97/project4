@@ -9,9 +9,11 @@ const api = axios.create({
 export const loginUser = async loginData => {
   const resp = await api.post(`/auth/login`, loginData);
   api.defaults.headers.common.authorization = `Bearer ${resp.data.auth_token}`;
+  console.log(resp);
+  
   LocalStorage(resp);
   return resp.data;
-  console.log(resp.data.user);
+  // console.log(resp.data.user);
   
 };
 
@@ -36,7 +38,7 @@ export const registerUser = async (registerData) => {
 
 const LocalStorage = resp => {
   localStorage.setItem("authToken", resp.data.auth_token);
-  localStorage.setItem("user", resp.data.user.user);
+  localStorage.setItem("user", resp.data.user);
 };
 
 // VERIFY USER
