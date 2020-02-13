@@ -1,5 +1,6 @@
 import React, {Component} from 'react'
 import { Link } from 'react-router-dom'
+import CreatePost from './createRecipe'
 // import CreateRecipe from './createRecipe'
 
 class RecipeGallery extends Component {
@@ -8,7 +9,7 @@ class RecipeGallery extends Component {
 
     this.state = {
       recipes: null,
-      addingPost: false
+      addingRecipe: false
     }
   }
 
@@ -30,19 +31,19 @@ class RecipeGallery extends Component {
                     <button className="post-link"><Link to={`/recipes/${recipe.id}`}>Go to Post</Link></button> 
                   </div>)
               })}
-              {/* {this.props.currentUser &&
-                <div className="add-post">
-                {this.state.addingPost ?
+              {this.props.currentUser &&
+                <div className="add-recipe">
+                {this.state.addingRecipe ?
                 <CreatePost
-                createPost={this.props.createPost}
+                createRecipe={this.props.createRecipe}
                 currentUser={this.props.currentUser} 
                   /> :
-                  <button className="add-button" onClick={() => (this.setState({ addingPost: true }))}>Add a Post <br /><span className="plus-button">+</span></button>
+                  <button className="add-button" onClick={() => (this.setState({ addingRecipe: true }))}>Add a Recipe of your own, chef <br /><span className="plus-button">+</span></button>
                 }
                 
                 
               </div>
-              } */}
+              }
               
             </div>
           ) : (
