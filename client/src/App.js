@@ -14,7 +14,10 @@ class App extends Component {
       user: "",
       password: "",
       currentUser: null,
-      errorText: ""
+      errorText: "",
+      recipe: null,
+      recipes: [],
+      comments: []
     };
   }
 
@@ -47,6 +50,22 @@ class App extends Component {
     localStorage.removeItem('user');
   }
 
+  getRecipe = async (id) => {
+    const recipe = await recipeSingle(id)
+    this.setState({
+      recipe
+    })
+  }
+
+  getRecipes = async () => {
+    const recipes = await recipesAll()
+    this.setState({
+      recipes
+    })
+  }
+
+
+
   componentDidMount() {
     verifyUser();
     if (localStorage.getItem('authToken')) {
@@ -57,6 +76,7 @@ class App extends Component {
       })
     }
   }
+
 
   render() {
     console.log(this.state.currentUser)
