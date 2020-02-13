@@ -49,7 +49,7 @@ class App extends Component {
     const currentUser = await loginUser(loginData);
     console.log(currentUser);
     this.setState({ currentUser });
-    // this.props.history.push("/recipes");
+    this.props.history.push("/");
   };
 
   handleLogout = () => {
@@ -104,7 +104,7 @@ class App extends Component {
       <div className="App">
         {this.state.currentUser ? (
           <div>
-            <h1>Hello, {this.state.currentUser}</h1>
+            <h1>Hello, {this.state.currentUser.user}</h1>
             <button onClick={this.handleLogout}>Logout!!</button>
           </div>
         ) : (
@@ -169,4 +169,4 @@ class App extends Component {
   }
 }
 
-export default App;
+export default withRouter(App);
