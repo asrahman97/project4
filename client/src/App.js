@@ -12,6 +12,8 @@ import Login from "./components/login";
 import Register from "./components/register";
 import Navigation from "./components/navigation";
 import RecipeGallery from "./components/recipeGallery";
+import Recipe from './components/singleRecipe'
+import Footer from './components/footer'
 
 class App extends Component {
   constructor(props) {
@@ -117,13 +119,34 @@ class App extends Component {
           )}
         />
         <Navigation />
+        <Route exact path="/" render={(props) =>
         <RecipeGallery
-          // {...props}
-          currentUser={this.state.currentUser}
-          recipes={this.state.recipes}
+            // {...props}
+            currentUser={this.state.currentUser}
+            recipes={this.state.recipes}
           // createRecipe={this.createRecipe}
-        />
-        Hello world, please help
+          />
+          }/>
+        
+        <Route  path="/recipes/:id" render={(props) =>
+          
+          <Recipe {...props}
+            getRecipe={this.getRecipe}
+            getRecipes={this.getRecipes}
+            currentUser={this.state.currentUser}
+            recipe={this.state.recipe}
+            recipes={this.state.recipes}
+            updateRecipe={this.updateRecipe}
+            deleteRecipe={this.deleteRecipe}
+            createComment={this.createComment}
+            getComments={this.getComments}
+            deleteComment={this.deleteComment}
+            comments={this.state.comments}
+            
+            />}
+          />
+          Hello world, please help
+          <Footer />
       </div>
     );
   }
