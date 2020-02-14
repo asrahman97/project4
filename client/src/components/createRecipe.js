@@ -5,7 +5,7 @@ export default class CreateRecipe extends Component {
     super(props);
 
     this.state = {
-      user: this.props.currentUser.user,
+      created_by: this.props.currentUser.user,
       recipe_name: '',
       rating: '',
       difficulty_level: '',
@@ -26,7 +26,7 @@ export default class CreateRecipe extends Component {
 
   reset() {
     this.setState({
-      user: this.props.currentUser.user,
+      created_by: this.props.currentUser.user,
       recipe_name: '',
       rating: '',
       difficulty_level: '',
