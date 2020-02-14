@@ -20,7 +20,6 @@ export const loginUser = async loginData => {
 // REGISTER
 export const registerUser = async (registerData) => {
   try {
-    // console.log("hello")
   const resp = await api.post('/signup', registerData);
   console.log(resp);
   
@@ -39,6 +38,7 @@ export const registerUser = async (registerData) => {
 const LocalStorage = resp => {
   localStorage.setItem("authToken", resp.data.auth_token);
   localStorage.setItem("user", resp.data.user);
+  localStorage.setItem("user_id", resp.data.id)
 };
 
 // VERIFY USER
