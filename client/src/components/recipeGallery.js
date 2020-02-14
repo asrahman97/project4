@@ -1,8 +1,9 @@
 import React, {Component} from 'react'
 import { Link } from 'react-router-dom'
-import CreatePost from './createRecipe'
-import Masonry from 'react-masonry-component'
+import CreateRecipe from './createRecipe'
+// import Masonry from 'react-masonry-component'
 // import CreateRecipe from './createRecipe'
+
 
 class RecipeGallery extends Component {
   constructor(props) {
@@ -26,7 +27,7 @@ class RecipeGallery extends Component {
             <div className="gallery">
               {this.props.recipes.map((recipe, index) => {
                 return (
-                  <div key={index} className="social_card">
+                  <div key={index} className="recipe-card">
                     <h2 className="name">{recipe.recipe_name}</h2>
                     <img className="gallery-img" src={recipe.image_url}></img>
                     <button className="post-link"><Link to={`/recipes/${recipe.id}`}>Go to Post</Link></button> 
@@ -35,7 +36,7 @@ class RecipeGallery extends Component {
               {this.props.currentUser &&
                 <div className="add-recipe">
                 {this.state.addingRecipe ?
-                <CreatePost
+                <CreateRecipe
                 createRecipe={this.props.createRecipe}
                 currentUser={this.props.currentUser} 
                   /> :
