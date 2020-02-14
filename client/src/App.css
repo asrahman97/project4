@@ -7,14 +7,19 @@ body {
   color: white;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
 
 #ytplayer {
   width: 600px;
   height: 350px;
 }
 
+/* .recipe-card {
+  width: 30%;
+  margin: 0 auto;
+} */
 
+
+.gallery-img {
+  width: 300px;
+  height: auto;
+}
