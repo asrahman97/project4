@@ -1,10 +1,10 @@
 import React, { Component } from "react";
 import { Link } from "react-router-dom";
-import getRecipe from "../App";
-// import {recipesAll} from '../services/api_helper'
-// import EditRecipeForm from "./editRecipe";
+// import getRecipe from "../App";
+import EditRecipeForm from "./editRecipe";
 // import Comments from "./comments";
 // import LikeButton from "./likes.js";
+import { Route } from 'react-router-dom';
 
 class Recipe extends Component {
   constructor(props) {
@@ -59,12 +59,13 @@ class Recipe extends Component {
   };
 
   render() {
-    console.log(this.state.recipe);
+    // console.log(this.state.recipe);
+    // console.log(this.props.currentUser.id)
     return (
       <div>
-        {/* <Link className="back-nav" to="/">
+        <Link className="back-nav" to="/">
           Back
-        </Link> */}
+        </Link>
         {this.state.recipe && (
           <div className="recipe-card">
             <h2>{this.state.recipe.recipe_name}</h2>
@@ -117,10 +118,10 @@ class Recipe extends Component {
               getComments={this.props.getComments}
               comments={this.props.comments}
               currentUser={this.props.currentUser}
-            />
+            /> */}
 
-            {this.props.currentUser &&
-            this.props.currentUser.username === this.state.post.username ? (
+            
+            {parseInt(localStorage.getItem("user_id")) === parseInt(this.state.recipe.created_by) ? (
               <div>
                 <Link to="/">
                   <button
@@ -128,10 +129,10 @@ class Recipe extends Component {
                     onClick={e => {
                       e.preventDefault();
                       let safeguard = window.confirm(
-                        "You are about to delete this post! Press OK to confirm."
+                        "You are about to delete this recipe! Press OK to confirm."
                       );
                       if (safeguard === true) {
-                        this.props.deletePost(e, this.state.postId);
+                        this.props.deleteRecipe(e, this.state.recipeId);
                         this.reset();
                       }
                     }}
@@ -142,18 +143,19 @@ class Recipe extends Component {
                 <button className="edit" onClick={e => this.editForm(e)}>
                   Edit
                 </button>
-                {this.state.editing && (
-                  <EditPostForm
-                    updatePost={this.props.updatePost}
-                    postId={this.props.match.params.id}
-                    posts={this.props.posts}
-                    setPost={this.setPost}
-                  />
+                  {this.state.editing && (
+                    <Route path="/recipes/:id" render={(props) =>
+                      <EditRecipeForm
+                        updateRecipe={this.props.updateRecipe}
+                        recipeId={this.props.match.params.id}
+                        recipes={this.props.recipes}
+                        setRecipe={this.setRecipe}
+                      />} />
                 )}
               </div>
             ) : (
-              <p>You are not authorized to modify this post.</p>
-            )} */}
+              <p>You are not authorized to modify this recipe.</p>
+            )}
           </div>
         )}
       </div>
