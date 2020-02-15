@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_02_11_142410) do
+ActiveRecord::Schema.define(version: 2020_02_15_195603) do
 
   create_table "ingredients", force: :cascade do |t|
     t.string "ingredient_name"
@@ -42,6 +42,18 @@ ActiveRecord::Schema.define(version: 2020_02_11_142410) do
     t.string "created_by"
   end
 
+  create_table "reviews", force: :cascade do |t|
+    t.text "review_message"
+    t.integer "score"
+    t.integer "user_id", null: false
+    t.integer "recipe_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.string "created_by"
+    t.index ["recipe_id"], name: "index_reviews_on_recipe_id"
+    t.index ["user_id"], name: "index_reviews_on_user_id"
+  end
+
   create_table "users", force: :cascade do |t|
     t.string "user"
     t.string "password_digest"
@@ -52,4 +64,6 @@ ActiveRecord::Schema.define(version: 2020_02_11_142410) do
 
   add_foreign_key "ingredients", "recipes"
   add_foreign_key "ratings", "recipes"
+  add_foreign_key "reviews", "recipes"
+  add_foreign_key "reviews", "users"
 end
