@@ -26,11 +26,11 @@ recipe4 = Recipe.create(recipe_name: "Crockpot Bacon Potatoes", rating: 3, diffi
 
 recipe5 = Recipe.create(recipe_name: "Slow Cooker Honey Garlic Chicken", rating: 5, difficulty_level: 2, prep_time: 5, cook_time: 200, total_time: 205, image_url: "https://www.spendwithpennies.com/wp-content/uploads/2013/10/Slow-Cooker-Honey-Garlic-Chicken-26-500x500.jpg", video_url: "https://www.youtube.com/watch?v=rsBeiP0BAHc", created_by: 5)
 
-ingredient1 = Ingredient.create(ingredient_name: "Salt to taste")
-ingredient2 = Ingredient.create(ingredient_name: "Pepper to taste")
-ingredient3 = Ingredient.create(ingredient_name: "Broth")
-ingredient4 = Ingredient.create(ingredient_name: "Cumin")
-ingredient5 = Ingredient.create(ingredient_name: "Paprika")
+# ingredient1 = Ingredient.create(ingredient_name: "Salt to taste")
+# ingredient2 = Ingredient.create(ingredient_name: "Pepper to taste")
+# ingredient3 = Ingredient.create(ingredient_name: "Broth")
+# ingredient4 = Ingredient.create(ingredient_name: "Cumin")
+# ingredient5 = Ingredient.create(ingredient_name: "Paprika")
 
 # user2.user.push(recipe2)
 # recipe2.Recipe.push(ingredient1)
