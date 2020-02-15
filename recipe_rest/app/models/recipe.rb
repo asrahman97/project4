@@ -4,6 +4,7 @@ class Recipe < ApplicationRecord
   # Model associations
   has_many :ingredients
   has_many :ratings
+  has_many :reviews, dependent: :destroy
 
   validates_presence_of :created_by
   # Validations
