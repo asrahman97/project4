@@ -160,7 +160,8 @@ class App extends Component {
         /> */}
         {this.state.currentUser ? (
           <div>
-            <h1>Hello, {this.state.currentUser.user}</h1>
+            {/* <h1>Hello, {this.state.currentUser.user}</h1> */}
+            <h1>Hello, {localStorage.getItem("user")}</h1>
             <button onClick={this.handleLogout}>Logout!!</button>
           </div>
         ) : (

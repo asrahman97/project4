@@ -12,6 +12,10 @@ class RecipesController < ApplicationController
     render json: @recipes
   end
 
+  # def short_recipe
+  #   @recipes_short = Recipe.where(prep_time: (less))
+  # end
+
   # POST /recipes
   def create
     # create recipes belonging to current user
