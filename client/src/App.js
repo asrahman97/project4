@@ -7,7 +7,10 @@ import {
   recipesAll,
   recipesCreate,
   recipeUpdate,
-  recipeDelete
+  recipeDelete,
+  reviewsRecipe,
+  reviewCreate,
+  reviewDelete
 } from "./services/api_helper";
 import { Route, Link, withRouter } from "react-router-dom";
 import "./App.css";
@@ -31,7 +34,7 @@ class App extends Component {
       errorText: "",
       recipe: null,
       recipes: [],
-      comments: []
+      reviews: []
     };
   }
 
@@ -102,6 +105,35 @@ class App extends Component {
     e.preventDefault();
     await recipeDelete(id);
   }
+
+
+  getReviews = async (id) => {
+    const reviews = await reviewsRecipe(id);
+    this.setState({
+      reviews
+    })
+  }
+  
+  createReview = async (id, review) => {
+    const newReview = await reviewCreate(id, review);
+    const reviews = this.state.reviews;
+    reviews.push(newReview);
+    this.setState({
+      reviews
+    })
+  }
+  
+  deleteReview = async (e, reviewId, id) => {
+    e.preventDefault();
+    await reviewDelete(reviewId, id);
+    const reviews = await this.reviewsRecipe(reviewId);
+    this.setState({
+      reviews
+    })
+  }
+
+
+
   componentDidMount() {
     verifyUser();
     this.getRecipes();
@@ -212,10 +244,10 @@ class App extends Component {
               recipes={this.state.recipes}
               updateRecipe={this.updateRecipe}
               deleteRecipe={this.deleteRecipe}
-              createComment={this.createComment}
-              getComments={this.getComments}
-              deleteComment={this.deleteComment}
-              comments={this.state.comments}
+              createReview={this.createReview}
+              getReviews={this.getReviews}
+              deleteReview={this.deleteReview}
+              reviews={this.state.reviews}
             />
           )}
         />
