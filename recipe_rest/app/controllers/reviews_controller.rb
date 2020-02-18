@@ -14,17 +14,20 @@ class ReviewsController < ApplicationController
 
   # POST /recipes/:recipe_id/reviews
   def create
-    @recipe.reviews.create!(review_params)
-    # json_response(@recipe, :created)
-    json_response(status: "SUCCESS", message: 'review created successfully.')
+    recipe = @recipe.reviews.create!(review_params)
 
+    # json_response(@recipe, :created)
+    # json_response(status: "SUCCESS", message: 'review created successfully.')
+    json_response(recipe)
   end
 
   # PUT /recipes/:recipe_id/reviews/:id
   def update
-    @review.update(review_params)
-    json_response(status: 'SUCCESS', message: 'review updated successfully.')
+    recipe = @review.update(review_params)
+    # json_response(status: 'SUCCESS', message: 'review updated successfully.')
+    json_response(recipe)
   end
+
 
   # DELETE /recipes/:recipe_id/reviews/:id
   def destroy
