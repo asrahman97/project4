@@ -7,15 +7,19 @@ class CreateReview extends Component {
     this.state = {
       user_id: "",
       review_message: "",
-      score: ""
+      score: "",
+      created_by: ""
     };
   }
 
   componentDidMount = () => {
     if (this.props.currentUser) {
+      const created_by = localStorage.getItem('user')
+      console.log(created_by);
+      
       const user_id = parseInt(localStorage.getItem("user_id"));
       this.setState({
-        user_id
+        user_id, created_by
       });
     }
   };
@@ -37,6 +41,7 @@ class CreateReview extends Component {
   render() {
     console.log(this.state);
     console.log(this.props);
+    console.log(this.props.currentUser)
 
     return (
       <div>
