@@ -20,7 +20,7 @@ import Navigation from "./components/navigation";
 import RecipeGallery from "./components/recipeGallery";
 import Recipe from "./components/singleRecipe";
 import Footer from "./components/footer";
-// import Welcome from 'react-welcome-page'
+import Welcome from 'react-welcome-page'
 
 
 class App extends Component {
@@ -158,7 +158,7 @@ class App extends Component {
     console.log(this.state.currentUser);
     return (
       <div className="App">
-        {/* <Welcome
+        <Welcome
           loopDuration={1000}
           data={[
             {
@@ -194,7 +194,7 @@ class App extends Component {
               textAnimation: "fadeIn"
             }
           ]}
-        /> */}
+        />
         {this.state.currentUser ? (
           <div>
             {/* <h1>Hello, {this.state.currentUser.user}</h1> */}
