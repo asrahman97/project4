@@ -5,7 +5,7 @@ class CreateReview extends Component {
     super(props);
 
     this.state = {
-      user: "",
+      user_id: "",
       review_message: "",
       score: ""
     };
@@ -13,8 +13,9 @@ class CreateReview extends Component {
 
   componentDidMount = () => {
     if (this.props.currentUser) {
+      const user_id = parseInt(localStorage.getItem("user_id"));
       this.setState({
-        user: this.props.currentUser.user
+        user_id
       });
     }
   };
@@ -34,6 +35,9 @@ class CreateReview extends Component {
   };
 
   render() {
+    console.log(this.state);
+    console.log(this.props);
+
     return (
       <div>
         <form
