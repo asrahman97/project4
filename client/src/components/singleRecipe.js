@@ -1,9 +1,7 @@
 import React, { Component } from "react";
 import { Link } from "react-router-dom";
-// import getRecipe from "../App";
 import EditRecipeForm from "./editRecipe";
-// import Comments from "./comments";
-// import LikeButton from "./likes.js";
+import Reviews from "./reviews";
 import { Route } from 'react-router-dom';
 
 class Recipe extends Component {
@@ -15,8 +13,8 @@ class Recipe extends Component {
       recipeDate: null,
       recipeId: null,
       editing: false,
-      likes: 0,
-      comments: []
+      // likes: 0,
+      reviews: []
     };
   }
 
@@ -109,16 +107,16 @@ class Recipe extends Component {
                 setPost={this.setPost}
                 updatePost={this.props.updatePost}
               />
-            )}
-            <Comments
-              postId={this.props.match.params.id}
-              createComment={this.props.createComment}
-              updateComment={this.props.updateComment}
-              deleteComment={this.props.deleteComment}
-              getComments={this.props.getComments}
-              comments={this.props.comments}
+            )} */}
+            <Reviews
+              recipeId={this.props.match.params.id}
+              createReview={this.props.createReview}
+              updateReview={this.props.updateReview}
+              deleteReview={this.props.deleteReview}
+              getReviews={this.props.getReviews}
+              reviews={this.props.reviews}
               currentUser={this.props.currentUser}
-            /> */}
+            />
 
             
             {parseInt(localStorage.getItem("user_id")) === parseInt(this.state.recipe.created_by) ? (
