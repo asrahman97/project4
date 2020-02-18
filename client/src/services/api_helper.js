@@ -81,32 +81,32 @@ export const recipeDelete = async id => {
   return resp.data;
 };
 
-// GET INGREDIENTS OF RECIPE 
-export const ingredientsrecipe = async id => {
-  const resp = await api.get(`/recipes/${id}/ingredients`);
+// GET REVIEWS OF RECIPE 
+export const reviewsRecipe = async id => {
+  const resp = await api.get(`/recipes/${id}/reviews`);
   return resp.data;
 };
 
-// CREATE INGREDIENT FOR RECIPE
-export const ingredientCreate = async (id, ingredientData) => {
-  const resp = await api.post(`/recipes/${id}/ingredients`, ingredientData);
+// CREATE REVIEW FOR RECIPE
+export const reviewCreate = async (id, reviewData) => {
+  const resp = await api.post(`/recipes/${id}/reviews`, reviewData);
   return resp.data;
 };
 
-// INDIVIDUAL INGREDIENT
-export const ingredientSingle = async (r_id, i_id) => {
-  const resp = await api.get(`/recipes/${r_id}/ingredients/${i_id}`);
+// INDIVIDUAL REVIEW
+export const reviewSingle = async (r_id, i_id) => {
+  const resp = await api.get(`/recipes/${r_id}/reviews/${i_id}`);
   return resp.data;
 };
 
-// UPDATE INGREDIENT
-export const ingredientUpdate = async (r_id, i_id, ingredientData) => {
-  const resp = await api.put(`/recipes/${r_id}/ingredients/${i_id}`, ingredientData);
+// UPDATE REVIEW
+export const reviewUpdate = async (r_id, i_id, reviewData) => {
+  const resp = await api.put(`/recipes/${r_id}/reviews/${i_id}`, reviewData);
   return resp.data;
 };
 
-// DELETE INGREDIENT
-export const ingredientDelete = async (r_id, i_id) => {
-  const resp = await api.destroy(`/recipes/${r_id}/ingredients/${i_id}`);
+// DELETE REVIEW
+export const reviewDelete = async (r_id, i_id) => {
+  const resp = await api.destroy(`/recipes/${r_id}/reviews/${i_id}`);
   return resp.data;
 };
