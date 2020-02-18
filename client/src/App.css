@@ -3,23 +3,57 @@
 }
 
 body {
-  background-color: blue;
-  color: white;
+  background-color: white;
+  color: black;
 }
 
+
+.my-masonry-grid {
+  display: -webkit-box; /* Not needed if autoprefixing */
+  display: -ms-flexbox; /* Not needed if autoprefixing */
+  display: flex;
+  margin-left: -30px; /* gutter size offset */
+  width: auto;
+}
+.my-masonry-grid_column {
+  padding-left: 30px; /* gutter size */
+  background-clip: padding-box;
+}
+ 
+
+.gallery-img {
+  width: 20vw;
+  height: auto;
+  overflow: hidden;
+}
+
+.recipe-card {
+  /* width: 200px; */
+  margin: 0 auto;
+  overflow: hidden;
+}
+
+.my-masonry-grid_column > div { /* change div to reference your elements you put in <Masonry> */
+  background: white;
+  margin-bottom: 30px;
+  outline: 1px solid black;
+  /* width: 220px; */
+}
+
+.gallery {
+  width: 80vw;
+  margin: 0 auto; 
+  display: flex;
+  justify-content: center;
+
+  /* padding: 100px */
+}
 
 #ytplayer {
   width: 600px;
   height: 350px;
 }
 
-/* .recipe-card {
-  width: 30%;
-  margin: 0 auto;
-} */
 
 
-.gallery-img {
-  width: 300px;
-  height: auto;
-}
+
