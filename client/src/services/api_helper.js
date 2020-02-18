@@ -77,7 +77,7 @@ export const recipeUpdate = async (id, recipeData) => {
 
 // DELETE INDIVIDUAL RECIPE
 export const recipeDelete = async id => {
-  const resp = await api.destroy(`/recipes/${id}`);
+  const resp = await api.delete(`/recipes/${id}`);
   return resp.data;
 };
 
@@ -111,6 +111,6 @@ export const reviewUpdate = async (r_id, i_id, reviewData) => {
 
 // DELETE REVIEW
 export const reviewDelete = async (r_id, i_id) => {
-  const resp = await api.destroy(`/recipes/${r_id}/reviews/${i_id}`);
+  const resp = await api.delete(`/recipes/${r_id}/reviews/${i_id}`);
   return resp.data;
 };
