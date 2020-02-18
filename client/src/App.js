@@ -124,9 +124,14 @@ class App extends Component {
   }
   
   deleteReview = async (e, reviewId, id) => {
+    console.log(reviewId);
+    console.log(id);
+
     e.preventDefault();
     await reviewDelete(reviewId, id);
-    const reviews = await this.reviewsRecipe(reviewId);
+    let something = this.state.reviews;
+    const reviews = something.filter(review => review.id !== id);
+    console.log(reviews);
     this.setState({
       reviews
     })
