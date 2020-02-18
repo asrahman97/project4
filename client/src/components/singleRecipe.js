@@ -88,8 +88,7 @@ class Recipe extends Component {
             <div id="video">
               <iframe
                 id="ytplayer"
-                // src={this.state.recipe.video_url}
-                src='https://www.youtube.com/embed/jMq8lEu-of0'
+                src={this.state.recipe.video_url}
                 frameborder="0"
               ></iframe>
             </div>
