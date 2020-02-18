@@ -18,6 +18,7 @@ class Reviews extends Component {
 
   render() {
     console.log(this.props.reviews);
+    console.log(this.props.currentUser)
 
     return (
       
@@ -30,6 +31,7 @@ class Reviews extends Component {
             {this.props.reviews.map((review, index) => {
               return (
                 <div key={index} className='review-box'>
+                  <p>{review.created_by}'s Review</p>
                   <p><span className="bold">{review.score}:</span> {review.review_message}</p>
                   {this.props.currentUser && this.props.currentUser.user === review.user &&
                     <button className="delete" onClick={(e) => {
