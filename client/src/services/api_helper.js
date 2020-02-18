@@ -89,6 +89,10 @@ export const reviewsRecipe = async id => {
 
 // CREATE REVIEW FOR RECIPE
 export const reviewCreate = async (id, reviewData) => {
+  console.log(id);
+  console.log(reviewData);
+  
+  
   const resp = await api.post(`/recipes/${id}/reviews`, reviewData);
   return resp.data;
 };
