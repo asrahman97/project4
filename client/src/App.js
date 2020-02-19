@@ -20,8 +20,7 @@ import Navigation from "./components/navigation";
 import RecipeGallery from "./components/recipeGallery";
 import Recipe from "./components/singleRecipe";
 import Footer from "./components/footer";
-import Welcome from 'react-welcome-page'
-
+import Welcome from "react-welcome-page";
 
 class App extends Component {
   constructor(props) {
@@ -42,8 +41,8 @@ class App extends Component {
     e.preventDefault();
     const data = await registerUser(registerData);
     // if (!currentUser.errorMessage) {
-    console.log(currentUser)
-    const currentUser = {user: data.user, id: data.id }
+    console.log(currentUser);
+    const currentUser = { user: data.user, id: data.id };
     this.setState({ currentUser });
     // this.props.history.push('/recipes');
     // } else {
@@ -56,7 +55,7 @@ class App extends Component {
     e.preventDefault();
     const currentUser = await loginUser(loginData);
     console.log(currentUser);
-    this.setState({  currentUser });
+    this.setState({ currentUser });
     // this.props.history.push("/");
   };
 
@@ -94,35 +93,34 @@ class App extends Component {
   updateRecipe = async (id, updates) => {
     const newRecipe = await recipeUpdate(id, updates);
     this.setState({
-      recipes: this.state.recipes.map(recipe => (
+      recipes: this.state.recipes.map(recipe =>
         recipe.id === parseInt(id) ? newRecipe : recipe
-      )),
+      ),
       recipe: newRecipe
-    })
-  }
+    });
+  };
 
   deleteRecipe = async (e, id) => {
     e.preventDefault();
     await recipeDelete(id);
-  }
+  };
 
-
-  getReviews = async (id) => {
+  getReviews = async id => {
     const reviews = await reviewsRecipe(id);
     this.setState({
       reviews
-    })
-  }
-  
+    });
+  };
+
   createReview = async (id, review) => {
     const newReview = await reviewCreate(id, review);
     const reviews = this.state.reviews;
     reviews.push(newReview);
     this.setState({
       reviews
-    })
-  }
-  
+    });
+  };
+
   deleteReview = async (e, reviewId, id) => {
     console.log(reviewId);
     console.log(id);
@@ -134,10 +132,8 @@ class App extends Component {
     console.log(reviews);
     this.setState({
       reviews
-    })
-  }
-
-
+    });
+  };
 
   componentDidMount() {
     verifyUser();
@@ -195,6 +191,16 @@ class App extends Component {
             }
           ]}
         />
+        {/* <div id="hero"> */}
+          {/* <img
+            id="main-image"
+            src="https://static.wixstatic.com/media/d6735a_b0525dedb9c743e8ae74945f0393ed90~mv2_d_4950_3300_s_4_2.jpg/v1/fill/w_1600,h_1066,al_c,q_90/file.jpg"
+            frameborder="0"
+          ></img> */}
+          {/* <div id="main-text">
+            <h1>Recipe Serendipity: A healthy app for the healthy person</h1>
+          </div>
+        </div> */}
         {this.state.currentUser ? (
           <div>
             {/* <h1>Hello, {this.state.currentUser.user}</h1> */}
