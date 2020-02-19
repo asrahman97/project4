@@ -2,8 +2,7 @@ import React, { Component } from "react";
 import { Link } from "react-router-dom";
 import EditRecipeForm from "./editRecipe";
 import Reviews from "./reviews";
-import { Route } from 'react-router-dom';
-
+import { Route } from "react-router-dom";
 
 class Recipe extends Component {
   constructor(props) {
@@ -66,26 +65,39 @@ class Recipe extends Component {
           Back
         </Link>
         {this.state.recipe && (
-          <div className="recipe-card">
-            <h2>{this.state.recipe.recipe_name}</h2>
-            <img className="single-img" src={this.state.recipe.image_url} />
-            {/* <p>
+          <div className="single-recipe-card">
+            <div className="top-flex">
+              <div className="single-recipe-img">
+                <img className="single-img" src={this.state.recipe.image_url} />
+              </div>
+              <div className="single-recipe-info">
+                <h2>{this.state.recipe.recipe_name}</h2>
+
+                {/* <p>
             <span className="bold">Diff:</span>{this.state.recipe.difficulty_level}</p> */}
-            <p>
-              <span className="bold">Rating:</span> {this.state.recipe.rating}
-            </p>
-            <p>
-              <span className="bold">Difficulty Level:</span>{" "}
-              {this.state.recipe.difficulty_level}
-            </p>
-            <p>
-              <span className="bold">Prep Time in Minutes:</span>{" "}
-              {this.state.recipe.prep_time}
-            </p>
-            <p>
-              <span className="bold">Cook Time in Minutes:</span>{" "}
-              {this.state.recipe.cook_time}
-            </p>
+                <p>
+                  <span className="bold">Rating:</span>{" "}
+                  {this.state.recipe.rating}
+                </p>
+                <p>
+                  <span className="bold">Difficulty Level:</span>{" "}
+                  {this.state.recipe.difficulty_level}
+                </p>
+                <p>
+                  <span className="bold">Description:</span>{" "}
+                  {this.state.recipe.description}
+                </p>
+                <p>
+                  <span className="bold">Prep Time:</span>{" "}
+                  {this.state.recipe.prep_time} mins
+                </p>
+                <p>
+                  <span className="bold">Cook Time:</span>{" "}
+                  {this.state.recipe.cook_time} mins
+                </p>
+              </div>
+            </div>
+
             <div id="video">
               <iframe
                 id="ytplayer"
@@ -93,9 +105,9 @@ class Recipe extends Component {
                 frameborder="0"
               ></iframe>
             </div>
-            <p>
-              <span className="bold">Rating:</span> {this.state.recipe.rating}
-            </p>
+
+            {/* <h2>Reviews</h2> */}
+
             {/* <p>
               <span className="bold">Date:</span> {this.state.recipeDate}
             </p> */}
@@ -118,8 +130,8 @@ class Recipe extends Component {
               currentUser={this.props.currentUser}
             />
 
-            
-            {parseInt(localStorage.getItem("user_id")) === parseInt(this.state.recipe.created_by) ? (
+            {parseInt(localStorage.getItem("user_id")) ===
+            parseInt(this.state.recipe.created_by) ? (
               <div>
                 <Link to="/">
                   <button
@@ -141,14 +153,18 @@ class Recipe extends Component {
                 <button className="edit" onClick={e => this.editForm(e)}>
                   Edit
                 </button>
-                  {this.state.editing && (
-                    <Route path="/recipes/:id" render={(props) =>
+                {this.state.editing && (
+                  <Route
+                    path="/recipes/:id"
+                    render={props => (
                       <EditRecipeForm
                         updateRecipe={this.props.updateRecipe}
                         recipeId={this.props.match.params.id}
                         recipes={this.props.recipes}
                         setRecipe={this.setRecipe}
-                      />} />
+                      />
+                    )}
+                  />
                 )}
               </div>
             ) : (
