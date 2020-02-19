@@ -1,39 +1,48 @@
-import React, { Component } from 'react';
+import React, { Component } from "react";
 
 class EditRecipeForm extends Component {
   constructor(props) {
     super(props);
 
     this.state = {
-      created_by: '',
-      recipe_name: '',
-      rating: '',
-      difficulty_level: '',
-      prep_time: '',
-      cook_time: '',
-      total_time: '',
+      created_by: "",
+      recipe_name: "",
+      rating: "",
+      difficulty_level: "",
+      prep_time: "",
+      cook_time: "",
+      total_time: "",
       image_url: "",
-      video_url: ""
-    }
+      video_url: "",
+      description: ""
+    };
   }
 
   componentDidMount() {
     this.setFormData();
     // console.log(this.props.recipes);
-
   }
-  
+
   setFormData = () => {
     if (this.props.recipes.length) {
-      const { recipe_name, rating, difficulty_level, prep_time, cook_time, total_time, image_url, video_url } = this.props.recipes.find(recipe => {
+      const {
+        recipe_name,
+        rating,
+        difficulty_level,
+        prep_time,
+        cook_time,
+        total_time,
+        image_url,
+        video_url,
+        description
+      } = this.props.recipes.find(recipe => {
         console.log(recipe);
-        
-        return recipe.id === parseInt(this.props.recipeId)
-      })
 
-      const created_by = localStorage.getItem("user_id")
+        return recipe.id === parseInt(this.props.recipeId);
+      });
+
+      const created_by = localStorage.getItem("user_id");
       console.log(created_by);
-      
 
       this.setState({
         created_by,
@@ -42,31 +51,34 @@ class EditRecipeForm extends Component {
         difficulty_level,
         prep_time,
         cook_time,
-        total_time, 
+        total_time,
         image_url,
-        video_url
-      })
+        video_url,
+        description
+      });
     }
-  }
+  };
 
-  handleChange = (e) => {
+  handleChange = e => {
     let { name, value } = e.target;
     this.setState({
       [name]: value
-    })
-  }
+    });
+  };
 
   render() {
     return (
-      
       <div>
-        <form className="edit-form" onSubmit={(e) => {
-          e.preventDefault();
-          this.props.updateRecipe(this.props.recipeId, this.state)
-          this.props.setRecipe(this.state)
-        }}>
-          
-          <input className="edit"
+        <form
+          className="edit-form"
+          onSubmit={e => {
+            e.preventDefault();
+            this.props.updateRecipe(this.props.recipeId, this.state);
+            this.props.setRecipe(this.state);
+          }}
+        >
+          <input
+            className="edit"
             // autocomplete="off"
             type="textarea"
             name="recipe_name"
@@ -75,7 +87,8 @@ class EditRecipeForm extends Component {
             placeholder="Recipe Name"
           />
 
-          <input className="edit"
+          <input
+            className="edit"
             // autocomplete="off"
             type="textarea"
             name="rating"
@@ -84,7 +97,8 @@ class EditRecipeForm extends Component {
             placeholder="Rating"
           />
 
-          <input className="edit"
+          <input
+            className="edit"
             // autocomplete="off"
             type="textarea"
             name="difficulty_level"
@@ -93,7 +107,8 @@ class EditRecipeForm extends Component {
             placeholder="Difficulty Level"
           />
 
-          <input className="edit"
+          <input
+            className="edit"
             // autocomplete="off"
             type="textarea"
             name="prep_time"
@@ -102,7 +117,8 @@ class EditRecipeForm extends Component {
             placeholder="Prep Time"
           />
 
-          <input className="edit"
+          <input
+            className="edit"
             // autocomplete="off"
             type="textarea"
             name="cook_time"
@@ -111,8 +127,18 @@ class EditRecipeForm extends Component {
             placeholder="Cook Time"
           />
 
+          <input
+            className="edit"
+            // autocomplete="off"
+            type="textarea"
+            name="description"
+            value={this.state.description}
+            onChange={this.handleChange}
+            placeholder="Description"
+          />
 
-          <input className="edit"
+          <input
+            className="edit"
             // autocomplete="off"
             type="textarea"
             name="image_url"
@@ -121,7 +147,8 @@ class EditRecipeForm extends Component {
             placeholder="Image"
           />
 
-          <input className="edit"
+          <input
+            className="edit"
             // autocomplete="off"
             type="textarea"
             name="video_url"
@@ -133,7 +160,7 @@ class EditRecipeForm extends Component {
           <input className="create" type="submit" />
         </form>
       </div>
-    )
+    );
   }
 }
 
