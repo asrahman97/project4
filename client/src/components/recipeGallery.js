@@ -2,8 +2,8 @@ import React, { Component } from "react";
 import { Link } from "react-router-dom";
 import CreateRecipe from "./createRecipe";
 import Masonry from "react-masonry-css";
+import { getUser } from "../services/api_helper";
 // import CreateRecipe from './createRecipe'
-
 
 const breakpointColumnsObj = {
   default: 4,
@@ -21,6 +21,8 @@ class RecipeGallery extends Component {
       addingRecipe: false
     };
   }
+
+  
 
   render() {
     console.log(this.props);
@@ -48,6 +50,8 @@ class RecipeGallery extends Component {
                         <button className="post-link">
                           <Link to={`/recipes/${recipe.id}`}>Go to Post</Link>
                         </button>
+                        <p>{recipe.user_name}</p>
+                        <img src={recipe.user_image} />
                       </div>
                     );
                   })}
