@@ -26,6 +26,7 @@ class Reviews extends Component {
         {this.props.reviews && (
           <div className="reviews">
             <h2 className="reviews-text">Reviews</h2>
+            <h3 className="add-review">Add your review here, chef!</h3>
             {this.props.currentUser && (
               <CreateReview
                 recipeId={this.props.recipeId}
@@ -36,9 +37,9 @@ class Reviews extends Component {
             {this.props.reviews.map((review, index) => {
               return (
                 <div key={index} className="review-box">
-                  <p>{review.created_by}'s Review</p>
-                  <p>
-                    <span className="bold">{review.score}:</span>{" "}
+                  <p>{review.created_by} gave this a score of {review.score}.</p>
+                  <p className='review-message-text'>
+                    {/* <span className="bold">{review.score}:</span>{" "} */}
                     {review.review_message}
                   </p>
                   {this.props.currentUser &&
