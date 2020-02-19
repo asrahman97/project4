@@ -41,7 +41,7 @@ class App extends Component {
     e.preventDefault();
     const data = await registerUser(registerData);
     // if (!currentUser.errorMessage) {
-    console.log(currentUser);
+    // console.log(currentUser);
     const currentUser = { user: data.user, id: data.id };
     this.setState({ currentUser });
     // this.props.history.push('/recipes');
