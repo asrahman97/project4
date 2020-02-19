@@ -114,3 +114,12 @@ export const reviewDelete = async (r_id, i_id) => {
   const resp = await api.delete(`/recipes/${r_id}/reviews/${i_id}`);
   return resp.data;
 };
+
+
+// Get individual user
+
+export const getUser = async id => {
+  const resp = await api.get(`/users/${id}`);
+  console.log(resp.data.image_url)
+  return resp.data;
+};
