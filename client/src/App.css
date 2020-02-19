@@ -54,6 +54,26 @@ body {
   height: 350px;
 }
 
+#hero {
+  height: 33vh;
+  /* background-size: cover; */
 
+  
+}
+
+#hero {
+  
+}
+
+#main-text {
+  color: black;
+  top: 5%;
+  left: 10%;
+  width: 60%;
+  max-height: 80%;
+  text-align: left;
+  font-size: 2rem;
+  margin: 0 auto;
+}
 
 
