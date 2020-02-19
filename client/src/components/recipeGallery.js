@@ -4,6 +4,14 @@ import CreateRecipe from "./createRecipe";
 import Masonry from "react-masonry-css";
 // import CreateRecipe from './createRecipe'
 
+
+const breakpointColumnsObj = {
+  default: 4,
+  1100: 3,
+  700: 2,
+  500: 1
+};
+
 class RecipeGallery extends Component {
   constructor(props) {
     super(props);
@@ -25,7 +33,7 @@ class RecipeGallery extends Component {
             <div className="gallery-page">
               <div className="gallery">
                 <Masonry
-                  breakpointCols={4}
+                  breakpointCols={breakpointColumnsObj}
                   className="my-masonry-grid"
                   columnClassName="my-masonry-grid_column"
                 >
