@@ -10,7 +10,8 @@ import {
   recipeDelete,
   reviewsRecipe,
   reviewCreate,
-  reviewDelete
+  reviewDelete,
+  getUser
 } from "./services/api_helper";
 import { Route, Link, withRouter } from "react-router-dom";
 import "./App.css";
@@ -76,6 +77,13 @@ class App extends Component {
 
   getRecipes = async () => {
     const recipes = await recipesAll();
+    for (let i = 0; i < recipes.length; i -= -1) {
+      let usr = await getUser(parseInt(recipes[i].created_by));
+      console.log(usr);
+      recipes[i].user_image = usr.image_url;
+      recipes[i].user_name = usr.user
+    }
+    console.log(recipes);
     this.setState({
       recipes
     });
@@ -192,12 +200,12 @@ class App extends Component {
           ]}
         />
         {/* <div id="hero"> */}
-          {/* <img
+        {/* <img
             id="main-image"
             src="https://static.wixstatic.com/media/d6735a_b0525dedb9c743e8ae74945f0393ed90~mv2_d_4950_3300_s_4_2.jpg/v1/fill/w_1600,h_1066,al_c,q_90/file.jpg"
             frameborder="0"
           ></img> */}
-          {/* <div id="main-text">
+        {/* <div id="main-text">
             <h1>Recipe Serendipity: A healthy app for the healthy person</h1>
           </div>
         </div> */}
