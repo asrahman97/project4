@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React, { Component } from "react";
 
 export default class CreateRecipe extends Component {
   constructor(props) {
@@ -6,48 +6,53 @@ export default class CreateRecipe extends Component {
 
     this.state = {
       created_by: this.props.currentUser.user,
-      recipe_name: '',
-      rating: '',
-      difficulty_level: '',
-      prep_time: '',
-      cook_time: '',
-      total_time: '',
+      recipe_name: "",
+      rating: "",
+      difficulty_level: "",
+      prep_time: "",
+      cook_time: "",
+      total_time: "",
       image_url: "",
-      video_url: ""
-    }
+      video_url: "",
+      description: ""
+    };
   }
 
-  handleChange = (e) => {
+  handleChange = e => {
     let { name, value } = e.target;
     this.setState({
       [name]: value
-    })
-  }
+    });
+  };
 
   reset() {
     this.setState({
       created_by: this.props.currentUser.user,
-      recipe_name: '',
-      rating: '',
-      difficulty_level: '',
-      prep_time: '',
-      cook_time: '',
-      total_time: '',
+      recipe_name: "",
+      rating: "",
+      difficulty_level: "",
+      prep_time: "",
+      cook_time: "",
+      total_time: "",
       image_url: "",
-      video_url: ""
-    })
+      video_url: "",
+      description: ""
+    });
   }
 
   render() {
     return (
       <div>
-        <form className="create-form" onSubmit={(e) => {
-          e.preventDefault();
-          this.props.createRecipe(this.state);
-          this.reset();
-        }}>
-
-          <input className="add"
+        <form
+          className="create-form"
+          onSubmit={e => {
+            e.preventDefault();
+            this.props.createRecipe(this.state);
+            this.reset();
+          }}
+        >
+          <input
+            className="add"
             // autocomplete="off"
             type="textarea"
             name="recipe_name"
@@ -56,7 +61,8 @@ export default class CreateRecipe extends Component {
             placeholder="Recipe Name"
           />
 
-          <input className="add"
+          <input
+            className="add"
             // autocomplete="off"
             type="textarea"
             name="rating"
@@ -65,7 +71,8 @@ export default class CreateRecipe extends Component {
             placeholder="Rating"
           />
 
-          <input className="add"
+          <input
+            className="add"
             // autocomplete="off"
             type="textarea"
             name="difficulty_level"
@@ -74,7 +81,8 @@ export default class CreateRecipe extends Component {
             placeholder="Difficulty Level"
           />
 
-          <input className="add"
+          <input
+            className="add"
             // autocomplete="off"
             type="textarea"
             name="prep_time"
@@ -83,7 +91,8 @@ export default class CreateRecipe extends Component {
             placeholder="Prep Time"
           />
 
-          <input className="add"
+          <input
+            className="add"
             // autocomplete="off"
             type="textarea"
             name="cook_time"
@@ -92,8 +101,18 @@ export default class CreateRecipe extends Component {
             placeholder="Cook Time"
           />
 
+          <input
+            className="add"
+            // autocomplete="off"
+            type="textarea"
+            name="description"
+            value={this.state.description}
+            onChange={this.handleChange}
+            placeholder="Description"
+          />
 
-          <input className="add"
+          <input
+            className="add"
             // autocomplete="off"
             type="textarea"
             name="image_url"
@@ -102,7 +121,8 @@ export default class CreateRecipe extends Component {
             placeholder="Image"
           />
 
-          <input className="add"
+          <input
+            className="add"
             // autocomplete="off"
             type="textarea"
             name="video_url"
@@ -114,6 +134,6 @@ export default class CreateRecipe extends Component {
           <input className="create" type="submit" />
         </form>
       </div>
-    )
+    );
   }
 }
