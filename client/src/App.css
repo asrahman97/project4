@@ -2,6 +2,10 @@
   text-align: center;
 }
 
+a {
+  text-decoration: none;
+}
+
 body {
   background-color: white;
   color: black;
@@ -31,6 +35,13 @@ body {
   /* width: 200px; */
   padding: 20px;
   overflow: hidden;
+  text-decoration: none;
+  color: black;
+}
+
+.recipe-card a {
+  text-decoration: none;
+  color: black
 }
 
 .my-masonry-grid_column > div { /* change div to reference your elements you put in <Masonry> */
@@ -51,6 +62,45 @@ body {
 
 .recipe-card:hover{
   background-color: rgb(236, 229, 229);
+}
+
+.top-flex {
+  display: flex;
+  flex-direction: row-reverse;
+  justify-content: center;
+  align-items: center;  
+  width: 800px;
+  margin: 0 auto;
+  padding: 3rem;
+}
+
+.single-img {
+  width: 60%;
+  height: 60%;
+  text-align: right;
+  padding-left: 3rem;
+  /* padding-left: 1rem; */
+  /* display: flex;
+  align-items: flex-end; */
+  /* align-self: right; */
+}
+
+.reviews-text {
+  width: 750px;
+  text-align: left;
+  margin: 0 auto;
+  padding-top: 2rem;
+  border-bottom: 1px black solid;
+}
+
+.single-recipe-info {
+  width: 300px;
+  /* height: 100%; */
+  text-align: left;
+}
+
+.single-recipe-card {
+  margin: 0 auto;
 }
 
 #ytplayer {
