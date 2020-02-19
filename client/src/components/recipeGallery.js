@@ -22,8 +22,6 @@ class RecipeGallery extends Component {
     };
   }
 
-  
-
   render() {
     console.log(this.props);
 
@@ -42,16 +40,17 @@ class RecipeGallery extends Component {
                   {this.props.recipes.map((recipe, index) => {
                     return (
                       <div key={index} className="recipe-card">
-                        <h2 className="name">{recipe.recipe_name}</h2>
-                        <img
-                          className="gallery-img"
-                          src={recipe.image_url}
-                        ></img>
-                        <button className="post-link">
-                          <Link to={`/recipes/${recipe.id}`}>Go to Post</Link>
-                        </button>
-                        <p>{recipe.user_name}</p>
-                        <img src={recipe.user_image} />
+                        <Link to={`/recipes/${recipe.id}`}>
+                          <h2 className="name">{recipe.recipe_name}</h2>
+                          <img
+                            className="gallery-img"
+                            src={recipe.image_url}
+                          ></img>
+                          <p>{recipe.description}</p>
+                          <button className="post-link">Go to Post</button>
+                          <p>{recipe.user_name}</p>
+                          <img src={recipe.user_image} />
+                        </Link>
                       </div>
                     );
                   })}
