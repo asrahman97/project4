@@ -39,7 +39,6 @@ class Reviews extends Component {
                 <div key={index} className="review-box">
                   <p>{review.created_by} gave this a score of {review.score}.</p>
                   <p className='review-message-text'>
-                    {/* <span className="bold">{review.score}:</span>{" "} */}
                     {review.review_message}
                   </p>
                   {this.props.currentUser &&
@@ -60,7 +59,7 @@ class Reviews extends Component {
                           }
                         }}
                       >
-                        Delete
+                        Delete this review!
                       </button>
                     )}
                 </div>
