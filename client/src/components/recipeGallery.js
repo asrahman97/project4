@@ -3,7 +3,6 @@ import { Link } from "react-router-dom";
 import CreateRecipe from "./createRecipe";
 import Masonry from "react-masonry-css";
 import { getUser } from "../services/api_helper";
-// import CreateRecipe from './createRecipe'
 
 const breakpointColumnsObj = {
   default: 4,
