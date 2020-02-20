@@ -32,7 +32,6 @@ body {
 }
 
 .recipe-card {
-  /* width: 200px; */
   padding: 20px;
   overflow: hidden;
   text-decoration: none;
@@ -48,7 +47,6 @@ body {
   background: white;
   margin-bottom: 30px;
   outline: 1px solid black;
-  /* width: 220px; */
 }
 
 .gallery {
@@ -57,7 +55,6 @@ body {
   display: flex;
   justify-content: center;
 
-  /* padding: 100px */
 }
 
 .recipe-card:hover{
@@ -79,14 +76,10 @@ body {
   height: 60%;
   text-align: right;
   padding-left: 3rem;
-  /* padding-left: 1rem; */
-  /* display: flex;
-  align-items: flex-end; */
-  /* align-self: right; */
 }
 
 .reviews-text {
-  width: 750px;
+  width: 70vw;
   text-align: left;
   margin: 0 auto;
   padding-top: 2rem;
@@ -119,23 +112,42 @@ body {
   height: 350px;
 }
 
-#hero {
-  height: 33vh;
-  /* background-size: cover; */
 
-  
+@media only screen and (max-width: 1100px) {
+  .gallery-img {
+    width: 25vw
+  }
 }
 
+@media only screen and (max-width: 700px) {
+  .gallery-img {
+    width: 40vw
+  }
 
-#main-text {
-  color: black;
-  top: 5%;
-  left: 10%;
-  width: 60%;
-  max-height: 80%;
-  text-align: left;
-  font-size: 2rem;
-  margin: 0 auto;
+  .top-flex {
+    display: flex;
+    flex-direction: column;
+    width: 80vw;
+    align-items: center;  
+  }
+
+  .single-img {
+    padding-left: 0;
+  }
+
+
+  #ytplayer {
+    width: 90vw;
+    height: 50vh;
+  }
 }
 
+@media only screen and (max-width: 500px) {
+  .gallery-img {
+    width: 75vw
+  }
 
+  .single-img {
+    width: 80vw;
+  }
+}
