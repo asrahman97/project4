@@ -9,7 +9,7 @@ class AuthenticationController < ApplicationController
         AuthenticateUser.new(auth_params[:user], auth_params[:password]).call
     # json_response(auth_token: auth_token[0], user: auth_token[1], id: auth_token[2])
     user = User.find_by(user: auth_params[:user])
-    json_response(auth_token: auth_token, user: user)
+    json_response(auth_token: auth_token, user: user, id: user.id)
   end
 
   private
