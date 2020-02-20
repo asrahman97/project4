@@ -9,19 +9,15 @@ const api = axios.create({
 export const loginUser = async loginData => {
   const resp = await api.post(`/auth/login`, loginData);
   api.defaults.headers.common.authorization = `Bearer ${resp.data.auth_token}`;
-  console.log(resp);
   
   LocalStorage(resp);
-  return resp.data;
-  // console.log(resp.data.user);
-  
+  return resp.data;  
 };
 
 // REGISTER
 export const registerUser = async (registerData) => {
   try {
   const resp = await api.post('/signup', registerData);
-  console.log(resp);
   
     api.defaults.headers.common.authorization = `Bearer ${resp.data.auth_token}`;
     localStorage.setItem('authToken', resp.data.auth_token);
@@ -52,14 +48,12 @@ export const verifyUser = () => {
 // ALL RECIPES 
 export const recipesAll = async () => {
   const resp = await api.get(`/recipes/`);
-  console.log(resp);
   return resp.data;
 };
 
 // CREATE RECIPES
 export const recipesCreate = async recipeData => {
   const resp = await api.post(`/recipes/`, recipeData);
-  console.log(resp);
   return resp.data;
 };
 
@@ -89,10 +83,6 @@ export const reviewsRecipe = async id => {
 
 // CREATE REVIEW FOR RECIPE
 export const reviewCreate = async (id, reviewData) => {
-  console.log(id);
-  console.log(reviewData);
-  
-  
   const resp = await api.post(`/recipes/${id}/reviews`, reviewData);
   return resp.data;
 };
@@ -120,6 +110,5 @@ export const reviewDelete = async (r_id, i_id) => {
 
 export const getUser = async id => {
   const resp = await api.get(`/users/${id}`);
-  console.log(resp.data.image_url)
   return resp.data;
 };
