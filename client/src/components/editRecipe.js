@@ -20,7 +20,6 @@ class EditRecipeForm extends Component {
 
   componentDidMount() {
     this.setFormData();
-    // console.log(this.props.recipes);
   }
 
   setFormData = () => {
