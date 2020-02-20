@@ -24,12 +24,10 @@ class Recipe extends Component {
     console.log(singleRecipe);
 
     const recipeId = this.props.match.params.id;
-    // const setRecipeDate = new Date(recipe.createdAt);
-    // const recipeDate = setRecipeDate.toDateString();
+
     this.setState({
       recipe: singleRecipe,
       recipeId
-      // recipeDate
     });
   };
 
@@ -57,8 +55,6 @@ class Recipe extends Component {
   };
 
   render() {
-    // console.log(this.state.recipe);
-    // console.log(this.props.currentUser.id)
     return (
       <div>
         <Link className="back-nav" to="/">
@@ -106,7 +102,6 @@ class Recipe extends Component {
               ></iframe>
             </div>
 
-            {/* <h2>Reviews</h2> */}
 
             {/* <p>
               <span className="bold">Date:</span> {this.state.recipeDate}
