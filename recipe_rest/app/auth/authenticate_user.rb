@@ -19,7 +19,7 @@ class AuthenticateUser
 
   # verify user credentials
   def user
-    user = User.find_by(user: user)
+    user = User.find_by(user: @user)
     puts user
     return user if user && user.authenticate(password)
     # raise Authentication error if credentials are invalid

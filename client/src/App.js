@@ -227,7 +227,7 @@ class App extends Component {
             />
           )}
         />
-        <Navigation />
+        {/* <Navigation /> */}
         <Route
           exact
           path="/"
