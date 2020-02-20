@@ -1,6 +1,7 @@
 import axios from "axios";
 const api = axios.create({
-  baseURL: "http://localhost:3000/"
+  // baseURL: "http://localhost:3000/"
+  baseURL: "https://agile-journey-80587.herokuapp.com/"
 });
 
 //AUTH
@@ -21,7 +22,7 @@ export const registerUser = async registerData => {
 
     api.defaults.headers.common.authorization = `Bearer ${resp.data.auth_token}`;
     localStorage.setItem("authToken", resp.data.auth_token);
-    localStorage.setItem("user", resp.data.user);
+    localStorage.setItem("user", resp.data.user.user);
     return resp.data;
   } catch (e) {
     console.log(e.response);
@@ -35,8 +36,9 @@ export const registerUser = async registerData => {
 };
 
 const LocalStorage = resp => {
+  console.log(resp)
   localStorage.setItem("authToken", resp.data.auth_token);
-  localStorage.setItem("user", resp.data.user);
+  localStorage.setItem("user", resp.data.user.user);
   localStorage.setItem("user_id", resp.data.id);
 };
 
