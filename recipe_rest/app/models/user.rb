@@ -6,6 +6,6 @@ class User < ApplicationRecord
   has_many :recipes, foreign_key: :created_by
   # Validations
   validates :user, presence: true, uniqueness: true
-  validates :password_digest, presence: true
+  # validates :password_digest, presence: true
   validates :image_url, presence: true
 end
