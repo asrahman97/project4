@@ -1,4 +1,5 @@
 class RecipesController < ApplicationController
+  skip_before_action :authorize_request, only: :index
   before_action :set_recipe, only: [:show, :update, :destroy]
 
   # GET /recipes
@@ -46,7 +47,7 @@ class RecipesController < ApplicationController
 
   # remove `created_by` from list of permitted parameters
   def recipe_params
-    params.require(:recipe).permit(:recipe_name, :rating, :difficulty_level, :prep_time, :cook_time, :total_time, :image_url, :video_url)
+    params.require(:recipe).permit(:recipe_name, :rating, :difficulty_level, :prep_time, :cook_time, :total_time, :image_url, :video_url, :description)
   end
 
   def set_recipe
