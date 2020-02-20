@@ -1,40 +1,43 @@
 import axios from "axios";
 const api = axios.create({
-  baseURL: "http://localhost:3000"
+  baseURL: "http://agile-journey-80587.herokuapp.com/"
 });
 
 //AUTH
 
-// LOGIN 
+// LOGIN
 export const loginUser = async loginData => {
   const resp = await api.post(`/auth/login`, loginData);
   api.defaults.headers.common.authorization = `Bearer ${resp.data.auth_token}`;
-  
+
   LocalStorage(resp);
-  return resp.data;  
+  return resp.data;
 };
 
 // REGISTER
-export const registerUser = async (registerData) => {
+export const registerUser = async registerData => {
   try {
-  const resp = await api.post('/signup', registerData);
-  
+    const resp = await api.post("/signup", registerData);
+
     api.defaults.headers.common.authorization = `Bearer ${resp.data.auth_token}`;
-    localStorage.setItem('authToken', resp.data.auth_token);
-    localStorage.setItem('user', resp.data.user);
+    localStorage.setItem("authToken", resp.data.auth_token);
+    localStorage.setItem("user", resp.data.user);
     return resp.data;
-  } catch(e) {
+  } catch (e) {
     console.log(e.response);
     if (e.response.status === 422) {
-      return {errorMessage: "Username is already associated with a chef, please login to continue"}
+      return {
+        errorMessage:
+          "Username is already associated with a chef, please login to continue"
+      };
     }
   }
-}
+};
 
 const LocalStorage = resp => {
   localStorage.setItem("authToken", resp.data.auth_token);
   localStorage.setItem("user", resp.data.user);
-  localStorage.setItem("user_id", resp.data.id)
+  localStorage.setItem("user_id", resp.data.id);
 };
 
 // VERIFY USER
@@ -45,7 +48,7 @@ export const verifyUser = () => {
   }
 };
 
-// ALL RECIPES 
+// ALL RECIPES
 export const recipesAll = async () => {
   const resp = await api.get(`/recipes/`);
   return resp.data;
@@ -75,7 +78,7 @@ export const recipeDelete = async id => {
   return resp.data;
 };
 
-// GET REVIEWS OF RECIPE 
+// GET REVIEWS OF RECIPE
 export const reviewsRecipe = async id => {
   const resp = await api.get(`/recipes/${id}/reviews`);
   return resp.data;
@@ -104,7 +107,6 @@ export const reviewDelete = async (r_id, i_id) => {
   const resp = await api.delete(`/recipes/${r_id}/reviews/${i_id}`);
   return resp.data;
 };
-
 
 // Get individual user
 
