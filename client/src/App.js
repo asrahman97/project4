@@ -150,7 +150,6 @@ class App extends Component {
 
     if (localStorage.getItem("authToken")) {
       const user = localStorage.getItem("user");
-      // const user1 = { user };
       user &&
         this.setState({
           currentUser: user
@@ -199,19 +198,9 @@ class App extends Component {
             }
           ]}
         />
-        {/* <div id="hero"> */}
-        {/* <img
-            id="main-image"
-            src="https://static.wixstatic.com/media/d6735a_b0525dedb9c743e8ae74945f0393ed90~mv2_d_4950_3300_s_4_2.jpg/v1/fill/w_1600,h_1066,al_c,q_90/file.jpg"
-            frameborder="0"
-          ></img> */}
-        {/* <div id="main-text">
-            <h1>Recipe Serendipity: A healthy app for the healthy person</h1>
-          </div>
-        </div> */}
+     
         {this.state.currentUser ? (
           <div>
-            {/* <h1>Hello, {this.state.currentUser.user}</h1> */}
             <h1>Hello, {localStorage.getItem("user")}</h1>
             <button onClick={this.handleLogout}>Logout!!</button>
           </div>
